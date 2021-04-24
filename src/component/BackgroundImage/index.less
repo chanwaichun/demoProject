@@ -1,0 +1,62 @@
+.components-backgroundImage {
+    position: relative;
+    height: 100vh;
+    background-color: black;
+    .components-backgroundImage-container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100vh;
+        right: 0;
+        bottom: 0;
+        overflow: hidden;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                /*初始状态 透明度为0*/
+            }
+
+            100% {
+                opacity: 1;
+                /*结尾状态 透明度为1*/
+            }
+        }
+
+        .backgroundImage-show {
+            display: block;
+
+            -webkit-animation-name: fadeIn;
+            /*动画名称*/
+            -webkit-animation-duration: 1s;
+            /*动画持续时间*/
+            -webkit-animation-iteration-count: 1;
+            /*动画次数*/
+
+        }
+
+        .backgroundImage-hidden {
+            display: none;
+        }
+
+        img {
+
+            width: 100%;
+
+        }
+
+    }
+
+    .components-backgroundImage-content {
+        background-color: rgba(0,0,0,0.5);
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+    }
+}

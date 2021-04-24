@@ -1,12 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2020-11-23 22:53:32
- * @LastEditTime: 2020-11-23 23:51:02
+ * @LastEditTime: 2021-02-23 22:58:06
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \redux-demo\src\reducer.js
  */
 const defaultState = {
+  isLogin: false,
   isLoading: true,
   data: [],
 }; //默认数据
