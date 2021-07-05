@@ -1,3 +1,11 @@
+# demo项目 二次封装antd的组件
+
+## 开始安装项目依赖
+npm install
+## 项目开始
+npm start
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
