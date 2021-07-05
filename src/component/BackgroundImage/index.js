@@ -3,7 +3,7 @@
  * @Date: 2021-02-22 20:02:40
  * @LastEditTime: 2021-02-23 21:56:02
  * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
+ * @Description: 背景轮播图
  * @FilePath: \demoProject\src\component\BackgroundImage\index.js
  */
 import React, { Component } from "react";
