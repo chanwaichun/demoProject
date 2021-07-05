@@ -1,0 +1,79 @@
+/**
+ * @description: 
+ * @param {*}
+ * @return {*}
+ */
+/* :root {
+    --color: blueviolet;
+    --space: 16px;
+} */
+/* 
+.property {
+    background-color: var(--color);
+    padding: var(--space);
+}
+*/
+:root {
+    --space: 32px;
+    --fontSize: 24px;
+}
+
+@property --gradient-start {
+    syntax: "<color>";
+    initial-value: #aabbcc;
+    inherits: false;
+}
+
+@property --gradient-middle {
+    syntax: "<color>";
+    initial-value: #ccddee;
+    inherits: false;
+}
+
+@property --gradient-end {
+    syntax: "<color>";
+    initial-value: #eeddff;
+    inherits: false;
+}
+
+.property {
+    background: linear-gradient(45deg, var(--gradient-start), var(--gradient-middle), var(--gradient-end));
+    /* transition: 1s --gradient-start, 1s --gradient-end; */
+    animation: change 10s infinite linear;
+    padding: var(--space);
+    font-size: var(--fontSize);
+    /* --gradient-start: white;
+    background: linear-gradient(var(--gradient-start), black);
+    transition: --gradient-start 1s; */
+}
+
+/* .property:hover {
+    --gradient-start: red;
+    --gradient-end: blueviolet;
+} */
+
+@keyframes change {
+    20% {
+        --gradient-start: red;
+        --gradient-middle: rgb(238, 255, 0);
+        --gradient-end: rgb(0, 60, 255);
+    }
+
+    40% {
+        --gradient-start: rgba(255, 0, 0, 0.212);
+        --gradient-middle: rgba(238, 255, 0, 0.527);
+        --gradient-end: rgba(0, 60, 255, 0.472);
+    }
+
+    60% {
+        --gradient-start: rgba(255, 157, 0, 0.459);
+        --gradient-middle: rgba(0, 204, 255, 0.527);
+        --gradient-end: rgba(255, 0, 234, 0.472);
+    }
+
+    80% {
+        --gradient-start: rgba(0, 255, 221, 0.582);
+        --gradient-middle: rgba(0, 247, 255, 0.527);
+        --gradient-end: rgba(0, 247, 255, 0.472);
+    }
+}

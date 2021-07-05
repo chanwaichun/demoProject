@@ -1,15 +1,7 @@
 /*
  * @Author: your name
- * @Date: 2021-02-20 21:19:43
- * @LastEditTime: 2021-04-24 18:20:34
- * @LastEditors: Please set LastEditors
- * @Description: In User Settings Edit
- * @FilePath: \demoProject\src\page\mainRoute_bak.js
- */
-/*
- * @Author: your name
  * @Date: 2020-10-29 15:00:14
- * @LastEditTime: 2021-02-19 15:27:56
+ * @LastEditTime: 2021-06-16 23:07:32
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \redux-demo\src\App.js
@@ -29,22 +21,22 @@ import VerticalMenu from "../../component/VerticalMenu/index";
 import HoritionMenu from "../../component/HoritionMenu/index";
 import Loading from "../../component/Loading/index";
 import Breadcrumb from "../../component/Breadcrumb/index";
-import { Home, PeopleManage, ComponentTest } from "../pageConfig";
-
+import pageConfig from "../pageConfig";
+import "./index.less";
 // import "./App.css";
 const { Header, Content, Sider } = Layout;
-function MainRoute() {
+function MainRoute(props) {
   return (
-    <div className="cc-layout">
+    <div className="container-layout">
       <Router basename="/main">
         <Layout>
           {/* 导航栏 */}
           <Header className="header">
-            <div className="logo" />
             {HoritionMenu([
-              { key: "1", name: "nav1", link: "/home" },
-              { key: "2", name: "nav2", link: "/peopleManange" },
-              { key: "3", name: "nav3", link: "/componentTest" },
+              { key: "1", name: "首页", link: "/home" },
+              { key: "2", name: "人员详情", link: "/peopleDetail" },
+              { key: "3", name: "表单编辑", link: "/formEdit" },
+              { key: "4", name: "测试组件页面", link: "/componentTest" },
             ])}
           </Header>
 
@@ -52,17 +44,18 @@ function MainRoute() {
             <Content
               className="site-layout-background"
               style={{
-                padding: 0,
+                paddingTop: 64,
                 margin: 0,
                 minHeight: "calc(100vh - 64px)",
               }}
             >
               <Breadcrumb />
               <Switch>
-                <Route path="/home" component={Home} />
-                <Route path="/peopleManange" component={PeopleManage} />
-                <Route path="/componentTest" component={ComponentTest} />
-                <Redirect to="/home" />
+                {pageConfig.map((item) => (
+                  <Route path={`${item.path}`} component={item.component} />
+                ))}
+
+                {/* <Redirect to="/home" /> */}
               </Switch>
             </Content>
           </Layout>
