@@ -1,14 +1,15 @@
 /*
  * @Author: your name
  * @Date: 2021-06-15 22:12:07
- * @LastEditTime: 2021-06-15 23:07:56
+ * @LastEditTime: 2021-07-24 20:14:29
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \demoProject\src\page\PeopleDetail\index.js
  */
 import React, { useState } from "react";
-import { Anchor, Card } from "antd";
+import { Anchor } from "antd";
 import "./index.less";
+import Card from "../../component/Card";
 const { Link } = Anchor;
 
 const linkInfoArray = [
@@ -16,22 +17,29 @@ const linkInfoArray = [
     id: "card-basicInfo",
     title: "基本信息",
   },
-  { id: "card-manageInfo", title: "基本信息" },
+  { id: "card-manageInfo", title: "管控信息" },
+  { id: "card-visitInfo", title: "走访信息" },
+  { id: "card-equipInfo", title: "设备信息" },
 ];
 export default function PeopleDetail() {
   return (
     <div id="peopleDetail_page">
-      <div class="peopleDetail-anchor">
+      <div className="peopleDetail-anchor">
         <Anchor targetOffset={80}>
-          {linkInfoArray.map((item) => (
-            <Link href={`#${item.id}`} title={item.title} />
+          {linkInfoArray.map((item, index) => (
+            <Link key={index} href={`#${item.id}`} title={item.title} />
           ))}
         </Anchor>
       </div>
-      <div class="peopleDetail-list">
-        {linkInfoArray.map((item) => (
-          <Card id={item.id} style={{ marginBottom: 16 }} title="卡片标题">
-            <div style={{ width: "100%", height: 500 }}></div>
+      <div className="peopleDetail-list">
+        {linkInfoArray.map((item, index) => (
+          <Card
+            key={index}
+            id={item.id}
+            style={{ marginBottom: 16 }}
+            title={item.title}
+          >
+            wewewewewe
           </Card>
         ))}
       </div>

@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-29 15:00:14
- * @LastEditTime: 2021-06-16 23:07:32
+ * @LastEditTime: 2021-07-06 00:06:49
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \redux-demo\src\App.js
@@ -42,17 +42,21 @@ function MainRoute(props) {
 
           <Layout>
             <Content
-              className="site-layout-background"
+              className="site-layout-background custom-layout"
               style={{
                 paddingTop: 64,
                 margin: 0,
-                minHeight: "calc(100vh - 64px)",
+                minHeight: "100vh - 64px)",
               }}
             >
               <Breadcrumb />
               <Switch>
-                {pageConfig.map((item) => (
-                  <Route path={`${item.path}`} component={item.component} />
+                {pageConfig.map((item, index) => (
+                  <Route
+                    key={index}
+                    path={`${item.path}`}
+                    component={item.component}
+                  />
                 ))}
 
                 {/* <Redirect to="/home" /> */}

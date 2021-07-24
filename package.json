@@ -1,5 +1,5 @@
 {
-  "name": "redux-demo",
+  "name": "ComponentPreview",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -25,6 +25,7 @@
     "customize-cra": "^1.0.0",
     "dotenv": "8.2.0",
     "dotenv-expand": "5.1.0",
+    "echarts": "^5.1.2",
     "eslint": "^7.11.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-flowtype": "^5.2.0",
