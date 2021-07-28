@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-06 21:36:39
- * @LastEditTime: 2021-06-06 22:33:59
+ * @LastEditTime: 2021-07-06 21:19:25
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \demoProject\src\page\ComponentTest\store.js
@@ -9,10 +9,10 @@
 import React, { createContext, useReducer } from "react";
 
 // 定义名字方便改名
-const contextName = "ComponentTestContext";
-const manageInfo = {};
-manageInfo[contextName] = createContext();
-const Context = manageInfo[contextName];
+// const contextName = "ComponentTestContext";
+// const manageInfo = {};
+// manageInfo[contextName] = createContext();
+const Context = createContext();
 const initialValue = {
   name: "小明",
   unitName: "惠州市局",

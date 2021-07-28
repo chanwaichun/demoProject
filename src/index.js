@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2020-10-29 15:00:14
- * @LastEditTime: 2021-02-20 21:53:36
+ * @LastEditTime: 2021-07-24 20:54:39
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \demoProject\src\index.js
@@ -11,6 +11,7 @@ import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import "./static/less/standard.less";
 
 ReactDOM.render(<App />, document.getElementById("root"));
 

@@ -141,15 +141,13 @@ module.exports = function (webpackEnv) {
       },
     ].filter(Boolean);
     if (preProcessor) {
-      loaders.push(
-        {
-          loader: require.resolve("resolve-url-loader"),
-          options: {
-            sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
-            root: paths.appSrc,
-          },
-        }
-      );
+      loaders.push({
+        loader: require.resolve("resolve-url-loader"),
+        options: {
+          sourceMap: isEnvProduction ? shouldUseSourceMap : isEnvDevelopment,
+          root: paths.appSrc,
+        },
+      });
     }
     return loaders;
   };
@@ -341,10 +339,10 @@ module.exports = function (webpackEnv) {
         // To fix this, we prevent you from importing files out of src/ -- if you'd like to,
         // please link the files into your node_modules/ and let module-resolution kick in.
         // Make sure your source files are compiled, as they will not be processed in any way.
-        new ModuleScopePlugin(paths.appSrc, [
-          paths.appPackageJson,
-          reactRefreshOverlayEntry,
-        ]),
+        // new ModuleScopePlugin(paths.appSrc, [
+        //   paths.appPackageJson,
+        //   reactRefreshOverlayEntry,
+        // ]),
       ],
     },
     resolveLoader: {
@@ -384,7 +382,7 @@ module.exports = function (webpackEnv) {
               options: {
                 limit: imageInlineSizeLimit,
                 name: "static/media/[name].[hash:8].[ext]",
-                esModule:false,
+                esModule: false,
               },
             },
             // Process application JS with Babel.
@@ -408,6 +406,13 @@ module.exports = function (webpackEnv) {
                             "@svgr/webpack?-svgo,+titleProp,+ref![path]",
                         },
                       },
+                    },
+                  ],
+                  [
+                    require.resolve("babel-plugin-import"), // 导入 import 插件
+                    {
+                      libraryName: "antd", //暴露antd
+                      style: "less", //样式为less
                     },
                   ],
                   isEnvDevelopment &&

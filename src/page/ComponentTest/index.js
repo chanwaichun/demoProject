@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-02 21:44:06
- * @LastEditTime: 2021-06-09 21:39:24
+ * @LastEditTime: 2021-07-28 23:56:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \demoProject\src\page\ComponentTest\index.js
@@ -9,14 +9,18 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 // import MyMap from "../../component/MyMap/index";
-import apiGetData from "../../api/apiGetData.js";
+// import apiGetData from "../../api/apiGetData.js";
+import { fetchUtil } from "../../util/index";
 // import CustomSelect from "../../component/CustomSelect/index";
-import CustomTable from "../../component/CustomTable/index";
-import Loading from "./../../component/Loading/index";
+// import CustomTable from "../../component/CustomTable/index";
+// import Loading from "./../../component/Loading/index";
 // import FormDemo from "../Form/index";
+import Chart from "../../component/Chart/index";
+import Card from "../../component/Card/index.js";
 import { ComponentTestStore, Context } from "./store.js";
-import "./index.css";
+import "./index.less";
 import { Button } from "antd";
+
 const style = {
   minHeight: 400,
 };
@@ -34,29 +38,32 @@ const ChildComponent = (props) => {
   );
 };
 export default function ComponentTest(params) {
-  const [dataInfo, setDataInfo] = useState([]);
-  const [isLoading, setIsLoading] = useState(true);
+  // const [dataInfo, setDataInfo] = useState([]);
+  // const [isLoading, setIsLoading] = useState(true);
   useEffect(() => {
     axios.interceptors.request.use(function (config) {
       // 在发送请求之前做些什么
-      setIsLoading(true);
+      // setIsLoading(true);
       return config;
     });
-    apiGetData("post", "api/getUnitInfo").then((dataObj) => {
-      setDataInfo(dataObj.data);
+    fetchUtil.fetchData("post", "api/getUnitInfo").then((dataObj) => {
+      // setDataInfo(dataObj.data);
     });
     axios.interceptors.response.use(function (response) {
       // 在发送请求之前做些什么
-      setIsLoading(false);
+      // setIsLoading(false);
       return response;
     });
   }, []);
   return (
     <ComponentTestStore>
-      <div id="componentTest-container">
+      <div id="componentTest-container" className="standard-padding">
+        <Card style={{ marginBottom: 16 }} title={"折线图"}>
+          <Chart></Chart>
+        </Card>
         {/* <MyMap></MyMap> */}
         {/* <CustomSelect data={dataInfo}></CustomSelect> */}
-        {!isLoading ? (
+        {/* {!isLoading ? (
           <CustomTable
             columns={[
               {
@@ -77,13 +84,13 @@ export default function ComponentTest(params) {
         <Button
           onClick={() => {
             window.cancel();
-            apiGetData("post", "api/getUnitInfo", true).then((dataObj) => {
+            fetchData("post", "api/getUnitInfo", true).then((dataObj) => {
               setDataInfo(dataObj.data);
             });
           }}
         >
           取消请求
-        </Button>
+        </Button> */}
         {/* <ChildComponent></ChildComponent> */}
         {/* <FormDemo></FormDemo> */}
         {/* <div className="property">css属性学习</div> */}
