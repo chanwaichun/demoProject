@@ -1,13 +1,13 @@
 /*
  * @Author: your name
  * @Date: 2021-07-24 13:11:56
- * @LastEditTime: 2021-07-24 21:49:10
+ * @LastEditTime: 2021-07-28 23:16:05
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \demoProject\src\component\Chart\index.js
  */
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 // 引入 echarts 核心模块，核心模块提供了 echarts 使用必须要的接口。
 import * as echarts from "echarts/core";
 // 引入柱状图图表，图表后缀都为 Chart
@@ -20,6 +20,7 @@ import {
 } from "echarts/components";
 // 引入 Canvas 渲染器，注意引入 CanvasRenderer 或者 SVGRenderer 是必须的一步
 import { CanvasRenderer } from "echarts/renderers";
+import { mathUtil } from "../../util";
 import "./index.less";
 
 // 注册必须的组件
@@ -31,23 +32,27 @@ echarts.use([
   LineChart,
   CanvasRenderer,
 ]);
+
 function Chart(props) {
   // const []
   // const  = useResize();
+  const chartRef = useRef(mathUtil.getRandomNum());
   let { data, height, width } = props;
+
   useEffect(() => {
     // 接下来的使用就跟之前一样，初始化图表，设置配置项
-    var myChart = echarts.init(document.getElementById("chartContent"));
-    window.addEventListener("resize", function (e) {
-      console.log(e);
+    console.log(chartRef);
+    let myChart = echarts.init(
+      document.getElementById(`chartContent-${chartRef.current}`)
+    );
+    window.addEventListener("resize", function () {
       myChart.resize();
     });
-
     myChart.setOption(setConfigByType("line"));
     return () => {
-      myChart.dispose();
+      window.removeEventListener("resize", function () {});
     };
-  }, [data]);
+  }, []);
   function setConfigByType(type, data) {
     const publicConfig = {
       tooltip: {
@@ -92,7 +97,7 @@ function Chart(props) {
 
   return (
     <div className="chartContainer">
-      <div id="chartContent"></div>
+      <div id={`chartContent-${chartRef.current}`}></div>
     </div>
   );
 }
