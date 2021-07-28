@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-03-02 21:44:06
- * @LastEditTime: 2021-07-24 21:06:57
+ * @LastEditTime: 2021-07-28 23:56:30
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \demoProject\src\page\ComponentTest\index.js
@@ -10,7 +10,7 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 // import MyMap from "../../component/MyMap/index";
 // import apiGetData from "../../api/apiGetData.js";
-import { fetchData } from "../../util/fetchUtil.js";
+import { fetchUtil } from "../../util/index";
 // import CustomSelect from "../../component/CustomSelect/index";
 // import CustomTable from "../../component/CustomTable/index";
 // import Loading from "./../../component/Loading/index";
@@ -46,7 +46,7 @@ export default function ComponentTest(params) {
       // setIsLoading(true);
       return config;
     });
-    fetchData("post", "api/getUnitInfo").then((dataObj) => {
+    fetchUtil.fetchData("post", "api/getUnitInfo").then((dataObj) => {
       // setDataInfo(dataObj.data);
     });
     axios.interceptors.response.use(function (response) {
@@ -58,7 +58,7 @@ export default function ComponentTest(params) {
   return (
     <ComponentTestStore>
       <div id="componentTest-container" className="standard-padding">
-        <Card style={{ marginBottom: 16 }} selfAdaption={true} title={"折线图"}>
+        <Card style={{ marginBottom: 16 }} title={"折线图"}>
           <Chart></Chart>
         </Card>
         {/* <MyMap></MyMap> */}

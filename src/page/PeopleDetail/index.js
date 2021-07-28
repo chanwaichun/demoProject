@@ -1,7 +1,7 @@
 /*
  * @Author: your name
  * @Date: 2021-06-15 22:12:07
- * @LastEditTime: 2021-07-24 20:14:29
+ * @LastEditTime: 2021-07-28 23:51:54
  * @LastEditors: Please set LastEditors
  * @Description: In User Settings Edit
  * @FilePath: \demoProject\src\page\PeopleDetail\index.js
@@ -10,6 +10,7 @@ import React, { useState } from "react";
 import { Anchor } from "antd";
 import "./index.less";
 import Card from "../../component/Card";
+import Chart from "../../component/Chart";
 const { Link } = Anchor;
 
 const linkInfoArray = [
@@ -39,7 +40,7 @@ export default function PeopleDetail() {
             style={{ marginBottom: 16 }}
             title={item.title}
           >
-            wewewewewe
+            <Chart></Chart>
           </Card>
         ))}
       </div>
