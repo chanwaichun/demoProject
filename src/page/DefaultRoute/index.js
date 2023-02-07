@@ -1,10 +1,10 @@
 /*
  * @Author: your name
  * @Date: 2021-07-05 23:34:02
- * @LastEditTime: 2021-07-06 00:00:50
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2023-02-07 19:40:07
+ * @LastEditors: chanwaichun chanwaichuncc@163.com
  * @Description: In User Settings Edit
- * @FilePath: \demoProject\src\page\DefaultRoute\index.js
+ * @FilePath: \demoProject-react\src\page\DefaultRoute\index.js
  */
 import React from "react";
 import { Link } from "react-router-dom";
@@ -17,7 +17,7 @@ export default function DefaultRoute(props) {
       <div
         onClick={() => {
           // 跳转到主页
-          props.history.push("/main/home");
+          props.history.push("/main");
         }}
       >
         进入系统

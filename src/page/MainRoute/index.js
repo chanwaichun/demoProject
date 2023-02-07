@@ -33,10 +33,11 @@ function MainRoute(props) {
           {/* 导航栏 */}
           <Header className="header">
             {HoritionMenu([
-              { key: "1", name: "首页", link: "/home" },
+              { key: "1", name: "首页", link: "/test" },
               { key: "2", name: "人员详情", link: "/peopleDetail" },
               { key: "3", name: "表单编辑", link: "/formEdit" },
               { key: "4", name: "测试组件页面", link: "/componentTest" },
+              { key: "5", name: "游戏", link: "/game" },
             ])}
           </Header>
 
@@ -46,7 +47,7 @@ function MainRoute(props) {
               style={{
                 paddingTop: 64,
                 margin: 0,
-                minHeight: "100vh - 64px)",
+                minHeight: "100vh -  64px",
               }}
             >
               <Breadcrumb />
