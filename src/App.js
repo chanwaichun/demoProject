@@ -1,17 +1,18 @@
 /*
  * @Author: your name
  * @Date: 2020-10-29 15:00:14
- * @LastEditTime: 2021-07-24 20:51:21
- * @LastEditors: Please set LastEditors
+ * @LastEditTime: 2023-02-07 19:37:01
+ * @LastEditors: chanwaichun chanwaichuncc@163.com
  * @Description: In User Settings Edit
- * @FilePath: \demoProject\src\App.js
+ * @FilePath: \demoProject-react\src\App.js
  */
 import React, { Component, createContext } from "react";
-import MainRoute from "./page/MainRoute";
-import DefaultRoute from "./page/DefaultRoute";
-import Login from "./page/Login";
-import NoMatch from "./page/NoMatch/index";
-import store from "./store";
+import MainRoute from "@/page/MainRoute";
+import DefaultRoute from "@/page/DefaultRoute";
+import Login from "@/page/Login";
+import NoMatch from "@/page/NoMatch/index";
+import store from "@/store";
+import route from "@/route/index.js";
 import { Modal } from "antd";
 import {
   BrowserRouter as Router,
@@ -20,7 +21,6 @@ import {
   Switch,
 } from "react-router-dom";
 import "antd/dist/antd.less";
-
 
 const appStore = createContext();
 export default class App extends Component {
@@ -68,10 +68,9 @@ export default class App extends Component {
         <Router basename="/">
           {/* {!this.state.isLogin ? <Redirect to="/login" /> : null} */}
           <Switch>
-            <Route exact path="/" component={DefaultRoute} />
-            <Route path="/main" component={MainRoute} />
-            <Route exact path="/login" component={Login} />
-
+            {route.map((item, index) => (
+              <Route key={index} {...item} />
+            ))}
             {/* <Redirect to="/main"></Redirect> */}
             {/* <Route component={NoMatch}></Route> */}
           </Switch>
